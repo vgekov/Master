@@ -1,0 +1,65 @@
+﻿@model List<TransactionViewModel>
+@{
+    ViewData["Title"] = "AllTransactions";
+}
+
+<h2>AllTransactions</h2>
+
+@if (Model.Any())
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Count/ID
+                </th>
+                <th>
+                    User Name/Email
+                </th>
+                <th>
+                   Transaction Data
+                </th>
+                <th>
+                    Cash
+                </th>
+                <th>
+                    Reason for Paymont
+                </th>
+                <th>
+                    Taker Company
+                </th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var tr in Model)
+            {
+                <tr>
+                    <th>
+                        @tr.Id
+                    </th>
+                    <th>
+                        @tr.User.UserName
+                    </th>
+                    <th>
+                        @tr.Data
+                    </th>   
+                    <th>
+                        @tr.Cash
+                    </th>
+                    <th>
+                        @tr.ReasonForPaymont
+                    </th>
+                    <th>
+                        @tr.TakerCompany
+                    </th>               
+                </tr>
+            }
+        </tbody>
+        
+    </table>
+
+    <a href="##" onClick="history.go(-1); return false;"> Return to client detail</a>
+}
+

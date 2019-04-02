@@ -1,0 +1,76 @@
+﻿@model TransactionViewModel
+
+<style>
+    .grid-container {
+        display: grid;
+        grid-template-columns:auto auto;
+        background-color: lightgray;
+        padding: 10px;
+    }
+
+    .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        font-size: 30px;
+        text-align: center;
+    }
+</style>
+<h2>New Transaction</h2>
+
+<div class="container" >
+    <form asp-controller="Home" asp-action="Transaction" method="post" class="form-group">
+       
+
+        <div class="grid-container" border: 1px solid black; background-color: lightgray">
+
+            <label for="@Model.Data">Data</label>
+            <input asp-for="@Model.Data" class="form-control" />
+
+
+            <label for="@Model.TakerCompany">Taker Company</label>
+            <input asp-for="@Model.TakerCompany" class="form-control" />
+
+            <label for="@Model.Cash">How much money?</label>
+            <input asp-for="@Model.Cash" class="form-control" />
+
+            <label for="@Model.ReasonForPaymont" rows="5" cols="40">Reason For Paymont</label>
+            <textarea asp-for="@Model.ReasonForPaymont" placeholder="write here Number of Voice... or another" class="form-control"></textarea>
+
+
+            <h5>Push SUBMIT to send transaction</h5>
+            <button type="submit" class="btn btn-warning btn-lg">Submit</button>
+            <br/>
+            <a href='@Url.Action("AllTransactions", "Home")' class="btn btn-primary">All Transactions</a>
+
+        </div>
+        <br />
+
+    </form>
+    <div style="background-color:dimgray;color:white;padding:20px;">
+        <table style="width:100%">
+            <tr>
+                <th>IBAN</th>
+                <th>BIC</th>
+                <th>ADDRESS</th>
+                <th>ID Num</th>
+                <th>EMAIL</th>
+                <th>FIRST NAME</th>
+                <th>LAST NAME</th>
+            </tr>
+            <tr>
+                <td>@Model.User.IBAN</td>
+                <td>@Model.User.BIC</td>
+                <td>@Model.User.Address</td>
+                <td>@Model.User.IdentificationNumber</td>
+                <td>@Model.User.Email</td>
+                <td>@Model.User.FirstName</td>
+                <td>@Model.User.LastName</td>
+
+            </tr>
+        </table>
+    </div>
+   
+
+</div>
+

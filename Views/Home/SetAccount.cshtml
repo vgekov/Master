@@ -1,0 +1,57 @@
+﻿
+@model UserRegisterViewModel
+
+@{
+    ViewData["Title"] = "Here you can Set Your Account";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Home" asp-action="SetAccount" method="post" class="form-group">
+          
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="@Model.FirstName">First Name</label>
+                <input asp-for="@Model.FirstName" class="form-control" placeholder="First name"/>
+                <span asp-validation-for="@Model.FirstName" class="text-danger" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.LastName">Last Name</label>
+                <input asp-for="@Model.LastName" required class="form-control" placeholder="Last name"/>
+                <span asp-validation-for="@Model.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.IBAN">IBAN</label>
+                <input asp-for="@Model.IBAN" required class="form-control"placeholder="IBAN" />
+                <span asp-validation-for="@Model.IBAN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.BIC">BIC</label>
+                <input asp-for="@Model.BIC"required  class="form-control"placeholder="BIC" />
+                <span asp-validation-for="@Model.BIC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Address">Address</label>
+                <input asp-for="@Model.Address" required  class="form-control" placeholder="Address" />
+                <span asp-validation-for="@Model.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.IdentificationNumber">Identification Number</label>
+                <input asp-for="@Model.IdentificationNumber" required class="form-control"placeholder="1234567891" />
+                <span asp-validation-for="@Model.IdentificationNumber" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-default">Set Account</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
